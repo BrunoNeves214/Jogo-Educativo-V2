@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6. Encontra a forma escondida</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; }
+    .back-btn:hover { filter: brightness(0.96); }
+    @keyframes find-glow {
+      0%,100% { box-shadow: 0 0 0 0 rgba(46,196,182,0.55); transform: scale(1); }
+      50% { box-shadow: 0 0 0 22px rgba(46,196,182,0); transform: scale(1.08); }
+    }
+    @keyframes sun-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .found-shape { animation: find-glow 1.7s ease-in-out infinite; }
+    .sun-rays { animation: sun-spin 30s linear infinite; }
+  </style>
+<style>
+  html, body { margin: 0; padding: 0; background: #EDEBF5; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+</style>
+</head>
+<body>
+<div style="width:1024px;height:768px;box-sizing:border-box;position:relative;overflow:hidden;background:#BFE9E4;font-family:'Nunito',sans-serif;color:#2B2A4A;display:flex;flex-direction:column;">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;position:relative;z-index:4;">
+    <a href="Main.html" class="back-btn" aria-label="Voltar ao in&iacute;cio" style="width:44px;height:44px;border-radius:50%;background:#FFFFFF;box-shadow:0 6px 14px rgba(43,42,74,0.10);display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2EC4B6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </a>
+    <div style="background:#FFFFFF;border-radius:999px;padding:10px 22px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 16px rgba(43,42,74,0.12);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2EC4B6" stroke-width="2.4" aria-hidden="true"><circle cx="12" cy="12" r="8"/></svg>
+      <span style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:19px;">Encontra o C&Iacute;RCULO escondido!</span>
+    </div>
+    <div style="width:44px;height:44px;"></div>
+  </div>
+
+  <!-- sun -->
+  <svg class="sun-rays" width="90" height="90" viewBox="0 0 90 90" style="position:absolute;top:26px;right:60px;z-index:1;" aria-hidden="true">
+    <g stroke="#FFD976" stroke-width="5" stroke-linecap="round"><line x1="45" y1="2" x2="45" y2="16"/><line x1="45" y1="74" x2="45" y2="88"/><line x1="2" y1="45" x2="16" y2="45"/><line x1="74" y1="45" x2="88" y2="45"/><line x1="14" y1="14" x2="24" y2="24"/><line x1="66" y1="66" x2="76" y2="76"/><line x1="14" y1="76" x2="24" y2="66"/><line x1="66" y1="24" x2="76" y2="14"/></g>
+    <circle cx="45" cy="45" r="26" fill="#FFC145"/>
+  </svg>
+
+  <!-- forest scene -->
+  <div style="flex-grow:1;position:relative;">
+    <!-- ground -->
+    <div style="position:absolute;bottom:0;left:0;right:0;height:170px;background:#8FCB86;border-radius:50% 50% 0 0 / 60px 60px 0 0;"></div>
+
+    <!-- tree 1 (triangle top hides nothing, plain) -->
+    <div style="position:absolute;bottom:150px;left:90px;width:18px;height:60px;background:#8B5E34;border-radius:4px;"></div>
+    <div style="position:absolute;bottom:190px;left:48px;width:0;height:0;border-left:51px solid transparent;border-right:51px solid transparent;border-bottom:90px solid #4E9A5C;"></div>
+
+    <!-- rock (square hidden, not the target) -->
+    <div style="position:absolute;bottom:140px;left:250px;width:70px;height:56px;background:#9C8F7E;border-radius:14px;"></div>
+
+    <!-- tree 2 -->
+    <div style="position:absolute;bottom:150px;left:820px;width:18px;height:60px;background:#8B5E34;border-radius:4px;"></div>
+    <div style="position:absolute;bottom:190px;left:778px;width:0;height:0;border-left:51px solid transparent;border-right:51px solid transparent;border-bottom:90px solid #57A566;"></div>
+
+    <!-- bush hiding the target circle -->
+    <div class="found-shape" style="position:absolute;bottom:160px;left:470px;width:110px;height:110px;border-radius:50%;background:#5CB85C;border:5px solid #3E8E41;"></div>
+
+    <!-- plain bushes -->
+    <div style="position:absolute;bottom:150px;left:610px;width:80px;height:64px;border-radius:50% 50% 40% 40%;background:#6FC26F;"></div>
+    <div style="position:absolute;bottom:150px;left:170px;width:64px;height:52px;border-radius:50% 50% 40% 40%;background:#6FC26F;"></div>
+
+    <!-- clouds -->
+    <div style="position:absolute;top:40px;left:120px;width:110px;height:44px;background:#FFFFFF;opacity:.8;border-radius:30px;"></div>
+    <div style="position:absolute;top:90px;left:600px;width:90px;height:38px;background:#FFFFFF;opacity:.7;border-radius:26px;"></div>
+  </div>
+</div>
+</body>
+</html>

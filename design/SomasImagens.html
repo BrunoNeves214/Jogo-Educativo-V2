@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>18. Somas com imagens</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; }
+    .back-btn:hover { filter: brightness(0.96); }
+    @keyframes slide-left { 0%,100% { transform: translateX(0); } 50% { transform: translateX(14px); } }
+    @keyframes slide-right { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-14px); } }
+    @keyframes union-glow { 0%,100% { opacity: 0; transform: scale(0.6); } 50% { opacity: .6; transform: scale(1.3); } }
+    .apple-left { animation: slide-left 2s ease-in-out infinite; }
+    .apple-right { animation: slide-right 2s ease-in-out infinite; }
+    .union { animation: union-glow 2s ease-in-out infinite; }
+  </style>
+<style>
+  html, body { margin: 0; padding: 0; background: #EDEBF5; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+</style>
+</head>
+<body>
+<div style="width:1024px;height:768px;box-sizing:border-box;position:relative;overflow:hidden;background:#F5FBF2;font-family:'Nunito',sans-serif;color:#2B2A4A;display:flex;flex-direction:column;">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;">
+    <a href="Main.html" class="back-btn" aria-label="Voltar ao in&iacute;cio" style="width:44px;height:44px;border-radius:50%;background:#FFFFFF;box-shadow:0 6px 14px rgba(43,42,74,0.10);display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6BBF59" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </a>
+    <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:24px;">Somas com Imagens</div>
+    <div style="width:44px;height:44px;"></div>
+  </div>
+
+  <div style="flex-grow:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px;">
+
+    <div style="display:flex;align-items:center;gap:26px;position:relative;">
+      <svg class="apple-left" width="76" height="76" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8c-3 0-5 2.3-5 5.6C7 17.5 9.6 21 12 21s5-3.5 5-7.4C17 10.3 15 8 12 8Z" fill="#FF6F59"/><path d="M12 8c0-2 .8-3.4 2.4-4" stroke="#6BBF59" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+      <span style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:44px;color:#6BBF59;">+</span>
+      <svg class="apple-right" width="76" height="76" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8c-3 0-5 2.3-5 5.6C7 17.5 9.6 21 12 21s5-3.5 5-7.4C17 10.3 15 8 12 8Z" fill="#FF6F59"/><path d="M12 8c0-2 .8-3.4 2.4-4" stroke="#6BBF59" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+      <div class="union" style="position:absolute;top:50%;left:calc(50% + 13px);width:60px;height:60px;margin-top:-30px;margin-left:-30px;border-radius:50%;background:#FFC145;filter:blur(6px);"></div>
+      <span style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:44px;color:#6B6A8A;margin-left:10px;">=</span>
+      <span style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:44px;color:#6B6A8A;">?</span>
+    </div>
+
+    <div style="display:flex;gap:24px;">
+      <div style="width:110px;height:110px;border-radius:26px;background:#FFFFFF;box-shadow:0 8px 18px rgba(43,42,74,0.10);border:4px solid transparent;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:46px;color:#8A89A6;">1</span>
+      </div>
+      <div style="position:relative;width:110px;height:110px;border-radius:26px;background:#FFFFFF;box-shadow:0 10px 26px rgba(63,182,95,0.35);border:4px solid #3FB65F;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:46px;color:#3FB65F;">2</span>
+        <div style="position:absolute;top:-12px;right:-12px;width:30px;height:30px;border-radius:50%;background:#3FB65F;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(43,42,74,0.2);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4 10-10"/></svg>
+        </div>
+      </div>
+      <div style="width:110px;height:110px;border-radius:26px;background:#FFFFFF;box-shadow:0 8px 18px rgba(43,42,74,0.10);border:4px solid transparent;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:46px;color:#8A89A6;">3</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

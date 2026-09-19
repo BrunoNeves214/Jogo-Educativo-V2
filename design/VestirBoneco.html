@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>19. Vestir o boneco</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; }
+    .back-btn:hover { filter: brightness(0.96); }
+    @keyframes pop-in { 0% { transform: scale(0.4); opacity: 0; } 70% { transform: scale(1.12); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+    @keyframes hover-drag { 0%,100% { transform: translateY(0) rotate(-14deg); } 50% { transform: translateY(-8px) rotate(-18deg); } }
+    @keyframes zone-glow { 0%,100% { box-shadow: 0 0 0 0 rgba(255,143,177,0.55); } 50% { box-shadow: 0 0 0 16px rgba(255,143,177,0); } }
+    .shirt-piece { animation: pop-in .6s ease-out; }
+    .shoes-piece { animation: pop-in .6s ease-out .15s both; }
+    .hat-drag { animation: hover-drag 1.8s ease-in-out infinite; }
+    .head-zone { animation: zone-glow 1.6s ease-in-out infinite; }
+  </style>
+<style>
+  html, body { margin: 0; padding: 0; background: #EDEBF5; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+</style>
+</head>
+<body>
+<div style="width:1024px;height:768px;box-sizing:border-box;position:relative;overflow:hidden;background:#FFF6F9;font-family:'Nunito',sans-serif;color:#2B2A4A;display:flex;flex-direction:column;">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;">
+    <a href="Main.html" class="back-btn" aria-label="Voltar ao in&iacute;cio" style="width:44px;height:44px;border-radius:50%;background:#FFFFFF;box-shadow:0 6px 14px rgba(43,42,74,0.10);display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF8FB1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </a>
+    <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:24px;">Veste o Boneco</div>
+    <div style="width:44px;height:44px;"></div>
+  </div>
+
+  <div style="flex-grow:1;position:relative;display:flex;align-items:center;justify-content:center;">
+
+    <!-- character -->
+    <div style="position:relative;display:flex;flex-direction:column;align-items:center;">
+      <div class="head-zone" style="width:100px;height:100px;border-radius:50%;background:#F4C7A0;position:relative;z-index:1;">
+        <div style="position:absolute;top:36px;left:26px;width:8px;height:8px;border-radius:50%;background:#2B2A4A;"></div>
+        <div style="position:absolute;top:36px;right:26px;width:8px;height:8px;border-radius:50%;background:#2B2A4A;"></div>
+        <div style="position:absolute;top:56px;left:38px;width:24px;height:10px;border-radius:0 0 12px 12px;border-bottom:3px solid #2B2A4A;"></div>
+      </div>
+      <div class="shirt-piece" style="width:160px;height:140px;border-radius:40px 40px 30px 30px;background:#4EA8DE;margin-top:-6px;"></div>
+      <div class="shoes-piece" style="display:flex;gap:20px;margin-top:-6px;">
+        <div style="width:44px;height:26px;border-radius:12px;background:#6B6A8A;"></div>
+        <div style="width:44px;height:26px;border-radius:12px;background:#6B6A8A;"></div>
+      </div>
+    </div>
+
+    <!-- hat piece being dragged toward head -->
+    <div class="hat-drag" style="position:absolute;top:70px;left:600px;filter:drop-shadow(0 14px 16px rgba(43,42,74,0.28));">
+      <svg width="110" height="90" viewBox="0 0 110 90" aria-hidden="true">
+        <ellipse cx="55" cy="70" rx="52" ry="14" fill="#FF6F59"/>
+        <path d="M25 70 Q30 15 55 15 Q80 15 85 70 Z" fill="#FF8FB1"/>
+        <circle cx="55" cy="15" r="8" fill="#FFC145"/>
+      </svg>
+    </div>
+  </div>
+</div>
+</body>
+</html>

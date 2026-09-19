@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Categoria — Letras e Números</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; }
+    .game-card { transition: transform .15s ease, box-shadow .15s ease; }
+    .game-card:hover { transform: translateY(-3px); box-shadow: 0 14px 26px rgba(43,42,74,0.16); }
+    .back-btn:hover { filter: brightness(0.96); }
+    .play-pill:hover { filter: brightness(1.06); }
+  </style>
+<style>
+  html, body { margin: 0; padding: 0; background: #EDEBF5; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+</style>
+</head>
+<body>
+<div style="width:1024px;height:768px;box-sizing:border-box;position:relative;overflow:hidden;background:#FFF9F6;font-family:'Nunito',sans-serif;color:#2B2A4A;display:flex;flex-direction:column;">
+
+  <!-- header band -->
+  <div style="background:#FF6F59;padding:22px 40px;display:flex;align-items:center;gap:18px;border-radius:0 0 32px 32px;box-shadow:0 8px 20px rgba(255,111,89,0.28);">
+    <a href="Main.html" class="back-btn" aria-label="Voltar ao in&iacute;cio" style="width:46px;height:46px;border-radius:50%;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6F59" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </a>
+    <div style="width:52px;height:52px;border-radius:16px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:20px;color:#FF6F59;flex-shrink:0;">Aa</div>
+    <div style="flex-grow:1;">
+      <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:28px;color:#FFFFFF;">Letras e N&uacute;meros</div>
+      <div style="font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;color:#FFE7E1;">Reconhece letras e n&uacute;meros todos os dias!</div>
+    </div>
+    <svg width="46" height="46" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M32 4 L39 24 L60 24 L43 37 L49 58 L32 46 L15 58 L21 37 L4 24 L25 24 Z" fill="#FFFFFF"/>
+      <circle cx="25" cy="30" r="2.6" fill="#FF6F59"/>
+      <circle cx="39" cy="30" r="2.6" fill="#FF6F59"/>
+      <path d="M24 37 Q32 43 40 37" stroke="#FF6F59" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- game list -->
+  <div style="flex-grow:1;display:grid;grid-template-columns:repeat(2, minmax(0,1fr));grid-template-rows:repeat(2, minmax(0,1fr));gap:20px;padding:28px 40px 32px 40px;">
+
+    <a href="GameChoice.html" class="game-card" style="display:flex;align-items:center;gap:16px;background:#FFFFFF;border-radius:24px;padding:20px;box-shadow:0 8px 18px rgba(43,42,74,0.10);">
+      <div style="width:60px;height:60px;border-radius:18px;background:#FFE7E1;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FF6F59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M17 8.5a5 5 0 0 1 0 7"/><path d="M19.5 6a8.5 8.5 0 0 1 0 12"/></svg>
+      </div>
+      <div style="flex-grow:1;">
+        <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:19px;">Ouve e Toca</div>
+        <div style="font-family:'Nunito',sans-serif;font-weight:600;font-size:12.5px;color:#8A89A6;">Ouve o som, toca na letra certa</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;">
+        <div style="display:flex;gap:2px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFC145" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFC145" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#E7E4F0" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+        </div>
+        <span class="play-pill" style="background:#FF6F59;color:#FFFFFF;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:13px;padding:8px 16px;border-radius:999px;">Jogar</span>
+      </div>
+    </a>
+
+    <a href="GameTracing.html" class="game-card" style="display:flex;align-items:center;gap:16px;background:#FFFFFF;border-radius:24px;padding:20px;box-shadow:0 8px 18px rgba(43,42,74,0.10);">
+      <div style="width:60px;height:60px;border-radius:18px;background:#FFE7E1;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FF6F59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-5L16 4l4 4L9 19l-5 1Z"/><line x1="14" y1="6" x2="18" y2="10"/></svg>
+      </div>
+      <div style="flex-grow:1;">
+        <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:19px;">Desenha a Letra</div>
+        <div style="font-family:'Nunito',sans-serif;font-weight:600;font-size:12.5px;color:#8A89A6;">Segue o pontilhado com o dedo</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;">
+        <div style="display:flex;gap:2px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFC145" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#E7E4F0" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#E7E4F0" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+        </div>
+        <span class="play-pill" style="background:#FF6F59;color:#FFFFFF;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:13px;padding:8px 16px;border-radius:999px;">Jogar</span>
+      </div>
+    </a>
+
+    <a href="GameDragDrop.html" class="game-card" style="display:flex;align-items:center;gap:16px;background:#FFFFFF;border-radius:24px;padding:20px;box-shadow:0 8px 18px rgba(43,42,74,0.10);">
+      <div style="width:60px;height:60px;border-radius:18px;background:#FFE7E1;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="#FF6F59" aria-hidden="true"><path d="M4 4h6a2 2 0 1 1 4 0h6v6a2 2 0 1 0 0 4v6h-6a2 2 0 1 1-4 0H4v-6a2 2 0 1 0 0-4Z"/></svg>
+      </div>
+      <div style="flex-grow:1;">
+        <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:19px;">Puzzle do Alfabeto</div>
+        <div style="font-family:'Nunito',sans-serif;font-weight:600;font-size:12.5px;color:#8A89A6;">Arrasta a letra para o lugar certo</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;">
+        <div style="display:flex;gap:2px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFC145" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFC145" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFC145" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+        </div>
+        <span class="play-pill" style="background:#FF6F59;color:#FFFFFF;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:13px;padding:8px 16px;border-radius:999px;">Jogar</span>
+      </div>
+    </a>
+
+    <a href="GameCounting.html" class="game-card" style="display:flex;align-items:center;gap:16px;background:#FFFFFF;border-radius:24px;padding:20px;box-shadow:0 8px 18px rgba(43,42,74,0.10);">
+      <div style="width:60px;height:60px;border-radius:18px;background:#FFE7E1;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8c-3 0-5 2.3-5 5.6C7 17.5 9.6 21 12 21s5-3.5 5-7.4C17 10.3 15 8 12 8Z" fill="#FF6F59"/><path d="M12 8c0-2 .8-3.4 2.4-4" stroke="#6BBF59" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+      </div>
+      <div style="flex-grow:1;">
+        <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:19px;">Conta e Escolhe</div>
+        <div style="font-family:'Nunito',sans-serif;font-weight:600;font-size:12.5px;color:#8A89A6;">Conta os objetos e escolhe o n&uacute;mero</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;">
+        <div style="display:flex;gap:2px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#E7E4F0" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#E7E4F0" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#E7E4F0" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+        </div>
+        <span class="play-pill" style="background:#FF6F59;color:#FFFFFF;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:13px;padding:8px 16px;border-radius:999px;">Jogar</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+</body>
+</html>

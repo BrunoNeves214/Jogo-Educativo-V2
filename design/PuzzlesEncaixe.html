@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12. Puzzle de encaixe</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; }
+    .back-btn:hover { filter: brightness(0.96); }
+    @keyframes slot-pulse { 0%,100% { opacity: .5; stroke-width: 4; } 50% { opacity: 1; stroke-width: 6; } }
+    .empty-slot { animation: slot-pulse 1.5s ease-in-out infinite; transform-origin: 100px 205px; }
+    @keyframes float-piece { 0%,100% { transform: translateY(0) rotate(-12deg); } 50% { transform: translateY(-10px) rotate(-16deg); } }
+    .drag-piece { animation: float-piece 2s ease-in-out infinite; }
+  </style>
+<style>
+  html, body { margin: 0; padding: 0; background: #EDEBF5; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+</style>
+</head>
+<body>
+<div style="width:1024px;height:768px;box-sizing:border-box;position:relative;overflow:hidden;background:#F7F5FC;font-family:'Nunito',sans-serif;color:#2B2A4A;display:flex;flex-direction:column;">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;">
+    <a href="Main.html" class="back-btn" aria-label="Voltar ao in&iacute;cio" style="width:44px;height:44px;border-radius:50%;background:#FFFFFF;box-shadow:0 6px 14px rgba(43,42,74,0.10);display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8E7DBE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </a>
+    <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:24px;">Puzzle de Encaixe</div>
+    <div style="width:44px;height:44px;"></div>
+  </div>
+
+  <div style="flex-grow:1;display:flex;align-items:center;justify-content:center;gap:70px;">
+
+    <div style="width:320px;height:340px;background:#FFFFFF;border-radius:32px;box-shadow:0 10px 24px rgba(43,42,74,0.10);display:flex;align-items:center;justify-content:center;">
+      <svg width="200" height="260" viewBox="0 0 200 260" aria-hidden="true">
+        <path d="M100 10 L130 70 L70 70 Z" fill="#FF6F59"/>
+        <rect x="70" y="70" width="60" height="110" rx="14" fill="#4EA8DE"/>
+        <path d="M70 150 L40 200 L70 180 Z" fill="#8E7DBE"/>
+        <path d="M130 150 L160 200 L130 180 Z" fill="#8E7DBE"/>
+        <circle cx="100" cy="110" r="16" fill="#FFFFFF" stroke="#2B2A4A" stroke-width="2"/>
+        <path class="empty-slot" d="M85 180 L100 230 L115 180 Z" fill="#F3F1FA" stroke="#8E7DBE" stroke-width="4" stroke-dasharray="5 6"/>
+      </svg>
+    </div>
+
+    <div class="drag-piece" style="filter:drop-shadow(0 16px 18px rgba(43,42,74,0.3));">
+      <svg width="70" height="90" viewBox="0 0 60 70" aria-hidden="true">
+        <path d="M30 4 L52 60 L8 60 Z" fill="#FFC145" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</div>
+</body>
+</html>

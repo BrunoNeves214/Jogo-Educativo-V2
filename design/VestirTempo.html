@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>23. Vestir consoante o tempo</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; }
+    .back-btn:hover { filter: brightness(0.96); }
+    @keyframes rain-fall { 0% { transform: translateY(-20px); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(120px); opacity: 0; } }
+    .drop { animation: rain-fall 1.2s linear infinite; }
+  </style>
+<style>
+  html, body { margin: 0; padding: 0; background: #EDEBF5; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+</style>
+</head>
+<body>
+<div style="width:1024px;height:768px;box-sizing:border-box;position:relative;overflow:hidden;background:#FFF9F3;font-family:'Nunito',sans-serif;color:#2B2A4A;display:flex;flex-direction:column;">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;">
+    <a href="Main.html" class="back-btn" aria-label="Voltar ao in&iacute;cio" style="width:44px;height:44px;border-radius:50%;background:#FFFFFF;box-shadow:0 6px 14px rgba(43,42,74,0.10);display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F4A261" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </a>
+    <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:24px;">Veste-te Conforme o Tempo</div>
+    <div style="width:44px;height:44px;"></div>
+  </div>
+
+  <div style="flex-grow:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;">
+
+    <div style="position:relative;width:200px;height:150px;">
+      <svg width="160" height="100" viewBox="0 0 160 100" style="position:absolute;left:20px;top:0;" aria-hidden="true">
+        <ellipse cx="80" cy="50" rx="70" ry="34" fill="#9AA9C4"/>
+        <ellipse cx="45" cy="42" rx="34" ry="26" fill="#9AA9C4"/>
+        <ellipse cx="118" cy="42" rx="30" ry="24" fill="#9AA9C4"/>
+      </svg>
+      <div class="drop" style="position:absolute;left:50px;top:80px;width:6px;height:16px;border-radius:3px;background:#4EA8DE;"></div>
+      <div class="drop" style="position:absolute;left:90px;top:80px;width:6px;height:16px;border-radius:3px;background:#4EA8DE;animation-delay:.3s;"></div>
+      <div class="drop" style="position:absolute;left:130px;top:80px;width:6px;height:16px;border-radius:3px;background:#4EA8DE;animation-delay:.6s;"></div>
+      <div class="drop" style="position:absolute;left:70px;top:80px;width:6px;height:16px;border-radius:3px;background:#4EA8DE;animation-delay:.9s;"></div>
+    </div>
+
+    <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:20px;">Est&aacute; a chover! O que vestes?</div>
+
+    <div style="display:flex;gap:24px;">
+      <div style="position:relative;width:150px;height:150px;border-radius:28px;background:#FFFFFF;box-shadow:0 10px 26px rgba(63,182,95,0.35);border:4px solid #3FB65F;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+        <svg width="60" height="60" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 0 1 16 0" fill="none" stroke="#F4A261" stroke-width="2.4"/><rect x="3" y="10" width="18" height="3" rx="1.5" fill="#F4A261"/><rect x="11" y="13" width="2" height="9" rx="1" fill="#F4A261"/></svg>
+        <span style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:14px;">Guarda-chuva</span>
+        <div style="position:absolute;top:-12px;right:-12px;width:30px;height:30px;border-radius:50%;background:#3FB65F;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(43,42,74,0.2);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4 10-10"/></svg>
+        </div>
+      </div>
+      <div style="width:150px;height:150px;border-radius:28px;background:#FFFFFF;box-shadow:0 8px 18px rgba(43,42,74,0.10);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+        <svg width="60" height="60" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4 L4 8 L7 11 L7 20 L17 20 L17 11 L20 8 L16 4 L12 7 Z" fill="#FFC145"/></svg>
+        <span style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:14px;color:#8A89A6;">T-shirt</span>
+      </div>
+      <div style="width:150px;height:150px;border-radius:28px;background:#FFFFFF;box-shadow:0 8px 18px rgba(43,42,74,0.10);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+        <svg width="60" height="60" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4 L4 8 L7 11 L7 20 L17 20 L17 11 L20 8 L16 4 L12 7 Z" fill="#8E7DBE"/><rect x="5" y="12" width="14" height="2" fill="#FFFFFF" opacity=".5"/></svg>
+        <span style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:14px;color:#8A89A6;">Casaco</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

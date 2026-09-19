@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7. Pinta tocando nas cores</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; }
+    .back-btn:hover { filter: brightness(0.96); }
+    @keyframes ripple { 0% { transform: scale(0.3); opacity: .7; } 100% { transform: scale(2.2); opacity: 0; } }
+    .tap-ripple { animation: ripple 1.4s ease-out infinite; }
+    .swatch-selected { transform: scale(1.18); }
+  </style>
+<style>
+  html, body { margin: 0; padding: 0; background: #EDEBF5; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+</style>
+</head>
+<body>
+<div style="width:1024px;height:768px;box-sizing:border-box;position:relative;overflow:hidden;background:#EFFBFA;font-family:'Nunito',sans-serif;color:#2B2A4A;display:flex;flex-direction:column;">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;">
+    <a href="Main.html" class="back-btn" aria-label="Voltar ao in&iacute;cio" style="width:44px;height:44px;border-radius:50%;background:#FFFFFF;box-shadow:0 6px 14px rgba(43,42,74,0.10);display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2EC4B6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </a>
+    <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:24px;">Pinta Tocando nas Cores</div>
+    <div style="width:44px;height:44px;"></div>
+  </div>
+
+  <div style="flex-grow:1;display:flex;align-items:center;justify-content:center;position:relative;">
+    <div style="width:340px;height:340px;background:#FFFFFF;border-radius:36px;box-shadow:0 10px 24px rgba(43,42,74,0.10);display:flex;align-items:center;justify-content:center;position:relative;">
+      <svg width="270" height="270" viewBox="0 0 300 300" aria-hidden="true">
+        <ellipse cx="150" cy="70" rx="26" ry="42" fill="#FF8FB1" transform="rotate(0 150 150)"/>
+        <ellipse cx="150" cy="70" rx="26" ry="42" fill="#FF8FB1" transform="rotate(60 150 150)"/>
+        <ellipse cx="150" cy="70" rx="26" ry="42" fill="#FFFFFF" stroke="#C9C6DC" stroke-width="3" stroke-dasharray="4 6" transform="rotate(120 150 150)"/>
+        <ellipse cx="150" cy="70" rx="26" ry="42" fill="#FF8FB1" transform="rotate(180 150 150)"/>
+        <ellipse cx="150" cy="70" rx="26" ry="42" fill="#FF8FB1" transform="rotate(240 150 150)"/>
+        <ellipse cx="150" cy="70" rx="26" ry="42" fill="#FFFFFF" stroke="#C9C6DC" stroke-width="3" stroke-dasharray="4 6" transform="rotate(300 150 150)"/>
+        <rect x="144" y="178" width="12" height="86" rx="6" fill="#6BBF59"/>
+        <ellipse cx="120" cy="220" rx="22" ry="12" fill="#6BBF59" transform="rotate(-20 120 220)"/>
+        <ellipse cx="180" cy="235" rx="22" ry="12" fill="#6BBF59" transform="rotate(20 180 235)"/>
+        <circle cx="150" cy="150" r="32" fill="#FFC145"/>
+        <circle class="tap-ripple" cx="90" cy="188" r="16" fill="#B892FF"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- palette -->
+  <div style="display:flex;justify-content:center;gap:20px;padding:22px 0 30px 0;">
+    <div class="swatch-selected" style="width:52px;height:52px;border-radius:50%;background:#FF8FB1;border:4px solid #FFFFFF;box-shadow:0 0 0 4px #FF8FB1, 0 8px 14px rgba(43,42,74,0.2);"></div>
+    <div style="width:52px;height:52px;border-radius:50%;background:#FFC145;box-shadow:0 6px 12px rgba(43,42,74,0.14);"></div>
+    <div style="width:52px;height:52px;border-radius:50%;background:#6BBF59;box-shadow:0 6px 12px rgba(43,42,74,0.14);"></div>
+    <div style="width:52px;height:52px;border-radius:50%;background:#4EA8DE;box-shadow:0 6px 12px rgba(43,42,74,0.14);"></div>
+    <div style="width:52px;height:52px;border-radius:50%;background:#B892FF;box-shadow:0 6px 12px rgba(43,42,74,0.14);"></div>
+    <div style="width:52px;height:52px;border-radius:50%;background:#F4A261;box-shadow:0 6px 12px rgba(43,42,74,0.14);"></div>
+  </div>
+</div>
+</body>
+</html>

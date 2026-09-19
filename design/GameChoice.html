@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1. Toca no som certo</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; }
+    .back-btn:hover { filter: brightness(0.96); }
+    .repeat-pill:hover { filter: brightness(0.97); }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.9); opacity: .55; }
+      100% { transform: scale(1.35); opacity: 0; }
+    }
+    .ring { position:absolute; inset:0; border-radius:50%; border:3px solid #FF6F59; animation: pulse-ring 1.8s ease-out infinite; }
+    .ring2 { animation-delay: .6s; }
+  </style>
+<style>
+  html, body { margin: 0; padding: 0; background: #EDEBF5; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+</style>
+</head>
+<body>
+<div style="width:1024px;height:768px;box-sizing:border-box;position:relative;overflow:hidden;background:#FFF3EF;font-family:'Nunito',sans-serif;color:#2B2A4A;display:flex;flex-direction:column;">
+
+  <!-- top bar -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;">
+    <a href="Category.html" class="back-btn" aria-label="Voltar &agrave; categoria" style="width:44px;height:44px;border-radius:50%;background:#FFFFFF;box-shadow:0 6px 14px rgba(43,42,74,0.10);display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF6F59" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </a>
+    <div style="display:flex;gap:6px;">
+      <div style="width:12px;height:12px;border-radius:50%;background:#FF6F59;"></div>
+      <div style="width:12px;height:12px;border-radius:50%;background:#FF6F59;"></div>
+      <div style="width:12px;height:12px;border-radius:50%;background:#FF6F59;"></div>
+      <div style="width:12px;height:12px;border-radius:50%;background:#FF6F59;"></div>
+      <div style="width:12px;height:12px;border-radius:50%;background:#F4D9D3;"></div>
+    </div>
+    <svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M32 4 L39 24 L60 24 L43 37 L49 58 L32 46 L15 58 L21 37 L4 24 L25 24 Z" fill="#FFC145" stroke="#FF9F1C" stroke-width="2" stroke-linejoin="round"/>
+      <circle cx="25" cy="30" r="2.6" fill="#2B2A4A"/><circle cx="39" cy="30" r="2.6" fill="#2B2A4A"/>
+      <path d="M24 37 Q32 43 40 37" stroke="#2B2A4A" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- title -->
+  <div style="text-align:center;margin-top:4px;">
+    <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:24px;">Toca no som certo!</div>
+  </div>
+
+  <!-- speaker -->
+  <div style="flex-grow:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;">
+    <div style="position:relative;width:120px;height:120px;display:flex;align-items:center;justify-content:center;">
+      <div class="ring"></div>
+      <div class="ring ring2"></div>
+      <button type="button" aria-label="Ouvir o som outra vez" style="position:relative;width:120px;height:120px;border-radius:50%;background:#FFFFFF;border:none;box-shadow:0 12px 24px rgba(255,111,89,0.28);display:flex;align-items:center;justify-content:center;">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#FF6F59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M17 8.5a5 5 0 0 1 0 7"/><path d="M19.5 6a8.5 8.5 0 0 1 0 12"/></svg>
+      </button>
+    </div>
+
+    <!-- options -->
+    <div style="display:flex;gap:26px;">
+      <div style="width:140px;height:140px;border-radius:28px;background:#FFFFFF;box-shadow:0 8px 18px rgba(43,42,74,0.10);border:4px solid transparent;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:64px;color:#8A89A6;">B</span>
+      </div>
+      <div style="position:relative;width:140px;height:140px;border-radius:28px;background:#FFFFFF;box-shadow:0 10px 26px rgba(63,182,95,0.35);border:4px solid #3FB65F;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:64px;color:#3FB65F;">A</span>
+        <div style="position:absolute;top:-12px;right:-12px;width:34px;height:34px;border-radius:50%;background:#3FB65F;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(43,42,74,0.2);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4 10-10"/></svg>
+        </div>
+      </div>
+      <div style="width:140px;height:140px;border-radius:28px;background:#FFFFFF;box-shadow:0 8px 18px rgba(43,42,74,0.10);border:4px solid transparent;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:64px;color:#8A89A6;">E</span>
+      </div>
+      <div style="width:140px;height:140px;border-radius:28px;background:#FFFFFF;box-shadow:0 8px 18px rgba(43,42,74,0.10);border:4px solid transparent;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:64px;color:#8A89A6;">O</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer streak -->
+  <div style="display:flex;align-items:center;justify-content:center;gap:10px;padding-bottom:28px;">
+    <span style="font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;color:#6B6A8A;">Sequ&ecirc;ncia:</span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFC145" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFC145" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFC145" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFC145" aria-hidden="true"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8Z"/></svg>
+  </div>
+</div>
+</body>
+</html>

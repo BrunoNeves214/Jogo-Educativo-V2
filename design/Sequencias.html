@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11. O que vem a seguir?</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; }
+    .back-btn:hover { filter: brightness(0.96); }
+    @keyframes blank-pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(142,125,190,0.5); } 50% { box-shadow: 0 0 0 14px rgba(142,125,190,0); } }
+    .blank-slot { animation: blank-pulse 1.6s ease-in-out infinite; }
+  </style>
+<style>
+  html, body { margin: 0; padding: 0; background: #EDEBF5; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+</style>
+</head>
+<body>
+<div style="width:1024px;height:768px;box-sizing:border-box;position:relative;overflow:hidden;background:#F7F5FC;font-family:'Nunito',sans-serif;color:#2B2A4A;display:flex;flex-direction:column;">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;">
+    <a href="Main.html" class="back-btn" aria-label="Voltar ao in&iacute;cio" style="width:44px;height:44px;border-radius:50%;background:#FFFFFF;box-shadow:0 6px 14px rgba(43,42,74,0.10);display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8E7DBE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </a>
+    <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:24px;">O Que Vem a Seguir?</div>
+    <div style="width:44px;height:44px;"></div>
+  </div>
+
+  <div style="flex-grow:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;">
+
+    <!-- pattern row -->
+    <div style="display:flex;gap:20px;background:#FFFFFF;padding:24px 30px;border-radius:28px;box-shadow:0 8px 18px rgba(43,42,74,0.10);">
+      <div style="width:80px;height:80px;border-radius:50%;background:#FF6F59;"></div>
+      <div style="width:80px;height:80px;border-radius:18px;background:#4EA8DE;"></div>
+      <div style="width:80px;height:80px;border-radius:50%;background:#FF6F59;"></div>
+      <div style="width:80px;height:80px;border-radius:18px;background:#4EA8DE;"></div>
+      <div class="blank-slot" style="width:80px;height:80px;border-radius:24px;background:#F3F1FA;border:4px dashed #8E7DBE;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:34px;color:#8E7DBE;">?</span>
+      </div>
+    </div>
+
+    <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:18px;color:#6B6A8A;">O que vem a seguir?</div>
+
+    <!-- options -->
+    <div style="display:flex;gap:26px;">
+      <div style="position:relative;width:120px;height:120px;border-radius:26px;background:#FFFFFF;box-shadow:0 10px 26px rgba(63,182,95,0.35);border:4px solid #3FB65F;display:flex;align-items:center;justify-content:center;">
+        <div style="width:56px;height:56px;border-radius:50%;background:#FF6F59;"></div>
+        <div style="position:absolute;top:-12px;right:-12px;width:30px;height:30px;border-radius:50%;background:#3FB65F;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(43,42,74,0.2);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4 10-10"/></svg>
+        </div>
+      </div>
+      <div style="width:120px;height:120px;border-radius:26px;background:#FFFFFF;box-shadow:0 8px 18px rgba(43,42,74,0.10);border:4px solid transparent;display:flex;align-items:center;justify-content:center;">
+        <div style="width:56px;height:56px;border-radius:14px;background:#4EA8DE;"></div>
+      </div>
+      <div style="width:120px;height:120px;border-radius:26px;background:#FFFFFF;box-shadow:0 8px 18px rgba(43,42,74,0.10);border:4px solid transparent;display:flex;align-items:center;justify-content:center;">
+        <div style="width:0;height:0;border-left:28px solid transparent;border-right:28px solid transparent;border-bottom:48px solid #6BBF59;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

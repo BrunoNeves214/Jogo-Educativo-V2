@@ -1,0 +1,679 @@
+/* ============================================================
+   Mundo Curioso — folha de estilo unica
+   Tokens retirados dos mockups originais (pasta /design)
+   ============================================================ */
+
+:root{
+  /* tinta */
+  --ink:#2B2A4A;
+  --ink-soft:#6B6A8A;
+  --ink-faint:#8A89A6;
+  --ink-ghost:#C9C6DC;
+
+  /* paleta */
+  --coral:#FF6F59;   --coral-soft:#FFE7E1;
+  --teal:#2EC4B6;    --teal-soft:#DFF7F4;
+  --amber:#FFB627;   --amber-soft:#FFF3D9;
+  --sun:#FFC145;
+  --sky:#4EA8DE;     --sky-soft:#E3F2FB;
+  --grape:#8E7DBE;   --grape-soft:#EDE9F8;
+  --lilac:#B892FF;   --lilac-soft:#F1E9FF;
+  --leaf:#6BBF59;    --leaf-soft:#E8F6E4;
+  --green:#3FB65F;
+  --rose:#FF8FB1;    --rose-soft:#FFEAF1;
+  --tangerine:#F4A261; --tangerine-soft:#FDEEDF;
+
+  --paper:#FFFFFF;
+  --bg:#EAF6FF;
+
+  /* forma */
+  --r-xl:32px; --r-lg:26px; --r-md:20px; --r-sm:14px;
+  --shadow-s:0 6px 14px rgba(43,42,74,.10);
+  --shadow-m:0 8px 18px rgba(43,42,74,.10);
+  --shadow-l:0 14px 28px rgba(43,42,74,.18);
+  --shadow-xl:0 20px 34px rgba(43,42,74,.28);
+
+  /* cor de destaque da accao corrente (cada ilha muda-a) */
+  --accent:var(--coral);
+  --accent-soft:var(--coral-soft);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html,body{
+  margin:0; padding:0; height:100%;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-weight:700;
+  -webkit-tap-highlight-color:transparent;
+  overscroll-behavior:none;
+}
+body{ overflow:hidden; }
+
+#app{
+  position:fixed; inset:0;
+  display:flex; flex-direction:column;
+  overflow:hidden;
+}
+#layer-fx{ position:fixed; inset:0; pointer-events:none; z-index:60; overflow:hidden; }
+#layer-modal{ position:fixed; inset:0; z-index:70; display:none; }
+#layer-modal.on{ display:block; }
+
+h1,h2,h3,.display{ font-family:'Baloo 2',cursive,sans-serif; font-weight:800; margin:0; }
+
+button{ font-family:inherit; font-weight:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+a{ color:inherit; text-decoration:none; }
+svg{ display:block; }
+
+/* ---------- ecra ---------- */
+.screen{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  animation:screen-in .28s ease both;
+}
+@keyframes screen-in{ from{ opacity:0; transform:translateY(10px) } to{ opacity:1; transform:none } }
+
+/* ---------- barra de topo ---------- */
+.topbar{
+  flex:0 0 auto;
+  display:flex; align-items:center; gap:12px;
+  padding:clamp(10px,2vh,20px) clamp(12px,3vw,32px);
+}
+.topbar .grow{ flex:1 1 auto; min-width:0; }
+.topbar h1{ font-size:clamp(17px,3.2vmin,26px); text-align:center; }
+
+.icon-btn{
+  width:clamp(44px,7vmin,54px); height:clamp(44px,7vmin,54px);
+  flex:0 0 auto;
+  border-radius:50%;
+  background:var(--paper);
+  box-shadow:var(--shadow-s);
+  display:flex; align-items:center; justify-content:center;
+  transition:transform .15s ease, filter .15s ease;
+}
+.icon-btn:active{ transform:scale(.92); }
+.icon-btn svg{ width:55%; height:55%; }
+.icon-btn.ghost{ background:transparent; box-shadow:none; pointer-events:none; }
+
+.pill{
+  background:var(--paper); border-radius:999px;
+  padding:clamp(8px,1.4vh,12px) clamp(16px,3vw,26px);
+  box-shadow:var(--shadow-s);
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:'Baloo 2',sans-serif; font-weight:800;
+  font-size:clamp(14px,2.4vmin,20px);
+}
+.pill.accent{ background:var(--accent); color:#fff; }
+
+/* pontos de progresso */
+.dots{ display:flex; gap:6px; align-items:center; }
+.dots i{
+  width:clamp(9px,1.4vmin,13px); height:clamp(9px,1.4vmin,13px);
+  border-radius:50%; background:#fff; box-shadow:inset 0 0 0 2px rgba(43,42,74,.10);
+  transition:background .3s ease, transform .3s ease;
+}
+.dots i.on{ background:var(--accent); box-shadow:none; transform:scale(1.12); }
+
+/* ---------- area de jogo ---------- */
+.stage{
+  flex:1 1 auto; min-height:0;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:clamp(12px,2.6vh,34px);
+  padding:0 clamp(12px,3vw,40px) clamp(12px,2vh,28px);
+  position:relative;
+}
+.stage.tight{ gap:clamp(8px,1.6vh,18px); }
+.stage.free{ justify-content:flex-start; overflow-y:auto; }
+
+.hint{
+  font-size:clamp(12px,2vmin,16px); color:var(--ink-soft);
+  text-align:center; max-width:46ch;
+}
+.prompt{
+  font-family:'Baloo 2',sans-serif; font-weight:800;
+  font-size:clamp(18px,3.4vmin,28px); text-align:center;
+}
+
+.card{ background:var(--paper); border-radius:var(--r-xl); box-shadow:var(--shadow-m); }
+
+/* ---------- linhas / grelhas de opcoes ---------- */
+.row{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:clamp(10px,2.4vmin,26px); }
+.grid{ display:grid; gap:clamp(10px,2.2vmin,24px); justify-content:center; align-content:center; }
+
+.tile{
+  width:var(--tile,clamp(80px,15vmin,140px));
+  height:var(--tile,clamp(80px,15vmin,140px));
+  border-radius:var(--r-lg);
+  background:var(--paper);
+  box-shadow:var(--shadow-m);
+  border:4px solid transparent;
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  padding:8px;
+}
+.tile > svg{ width:72%; height:72%; }
+.tile .glyph{
+  font-family:'Baloo 2',sans-serif; font-weight:800;
+  font-size:clamp(34px,7vmin,64px);
+  color:var(--ink-faint); line-height:1;
+}
+.tile:active{ transform:scale(.95); }
+@media (hover:hover){ .tile:hover{ transform:translateY(-4px); box-shadow:var(--shadow-l); } }
+
+.tile.right{
+  border-color:var(--green);
+  box-shadow:0 10px 26px rgba(63,182,95,.35);
+  animation:pop .45s ease;
+}
+.tile.right .glyph{ color:var(--green); }
+.tile.wrong{ animation:wobble .5s ease; }
+.tile.dim{ opacity:.45; pointer-events:none; }
+.tile .check{
+  position:absolute; top:-12px; right:-12px;
+  width:clamp(26px,4.4vmin,34px); height:clamp(26px,4.4vmin,34px);
+  border-radius:50%; background:var(--green);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 10px rgba(43,42,74,.2);
+  animation:pop .35s ease;
+}
+.tile .check svg{ width:58%; height:58%; }
+
+@keyframes pop{ 0%{transform:scale(.6)} 60%{transform:scale(1.12)} 100%{transform:scale(1)} }
+@keyframes wobble{
+  0%,100%{ transform:translateX(0) rotate(0deg) }
+  20%{ transform:translateX(-7px) rotate(-3deg) }
+  40%{ transform:translateX(6px) rotate(3deg) }
+  60%{ transform:translateX(-4px) rotate(-2deg) }
+  80%{ transform:translateX(3px) rotate(1deg) }
+}
+@keyframes bob{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-10px) } }
+@keyframes pulse-ring{ 0%{ transform:scale(.9); opacity:.55 } 100%{ transform:scale(1.4); opacity:0 } }
+@keyframes glow{ 0%,100%{ box-shadow:0 0 0 0 rgba(255,111,89,.45) } 50%{ box-shadow:0 0 0 14px rgba(255,111,89,0) } }
+@keyframes spin{ to{ transform:rotate(360deg) } }
+
+/* ---------- botao grande de som ---------- */
+.speaker{
+  position:relative;
+  width:clamp(88px,16vmin,132px); height:clamp(88px,16vmin,132px);
+  border-radius:50%; background:var(--paper);
+  box-shadow:0 12px 24px rgba(255,111,89,.28);
+  display:flex; align-items:center; justify-content:center;
+  transition:transform .15s ease;
+}
+.speaker:active{ transform:scale(.93); }
+.speaker svg{ width:44%; height:44%; }
+.speaker .ring{
+  position:absolute; inset:0; border-radius:50%;
+  border:3px solid var(--accent);
+  animation:pulse-ring 1.8s ease-out infinite;
+}
+.speaker .ring.b{ animation-delay:.6s; }
+
+/* ---------- botoes de accao ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  border-radius:999px;
+  padding:clamp(11px,1.6vh,15px) clamp(18px,3vw,26px);
+  font-family:'Baloo 2',sans-serif; font-weight:700;
+  font-size:clamp(13px,2.2vmin,17px);
+  background:var(--paper); color:var(--ink-soft);
+  box-shadow:var(--shadow-s);
+  transition:transform .15s ease, filter .15s ease;
+}
+.btn svg{ width:1.15em; height:1.15em; }
+.btn:active{ transform:scale(.95); }
+.btn.primary{ background:var(--accent); color:#fff; box-shadow:0 8px 16px rgba(43,42,74,.22); }
+.btn.big{ font-size:clamp(15px,2.8vmin,21px); padding:clamp(14px,2vh,20px) clamp(24px,4vw,38px); }
+
+/* ---------- mascote ---------- */
+.mascot{
+  position:absolute; right:clamp(10px,2.5vw,28px); bottom:clamp(10px,2vh,24px);
+  width:clamp(58px,9vmin,86px); height:clamp(58px,9vmin,86px);
+  z-index:8; pointer-events:none;
+  transition:transform .3s cubic-bezier(.3,1.5,.5,1);
+}
+.mascot.cheer{ animation:cheer .8s ease; }
+@keyframes cheer{
+  0%,100%{ transform:translateY(0) rotate(0deg) scale(1) }
+  25%{ transform:translateY(-16px) rotate(-10deg) scale(1.12) }
+  55%{ transform:translateY(0) rotate(8deg) scale(.96) }
+  80%{ transform:translateY(-6px) rotate(-3deg) scale(1.04) }
+}
+.mascot.nudge{ animation:wobble .6s ease; }
+
+.bubble{
+  position:absolute; right:clamp(76px,11vmin,110px); bottom:clamp(24px,4vh,48px);
+  max-width:min(58vw,300px);
+  background:var(--paper); color:var(--ink);
+  border-radius:20px 20px 4px 20px;
+  padding:12px 16px;
+  box-shadow:var(--shadow-l);
+  font-size:clamp(12px,2vmin,16px);
+  z-index:9; pointer-events:none;
+  animation:pop .3s ease;
+}
+
+/* ---------- pecas arrastaveis ---------- */
+.draggable{ touch-action:none; cursor:grab; user-select:none; -webkit-user-select:none; }
+.draggable.dragging{
+  cursor:grabbing; z-index:40;
+  filter:drop-shadow(0 18px 22px rgba(43,42,74,.32));
+}
+.draggable.returning{ transition:transform .35s cubic-bezier(.3,1.4,.5,1); }
+.slot{ transition:background .2s ease, border-color .2s ease, transform .2s ease; }
+.slot.hot{ transform:scale(1.07); }
+.slot.filled{ border-style:solid; }
+.slot.refuse{ animation:wobble .5s ease; }
+.slot.target{ animation:glow 1.6s ease-in-out infinite; }
+
+/* ---------- ecra inicial ---------- */
+.home{ background:var(--bg); }
+.home .hill{
+  position:absolute; bottom:-22vh; left:-20vw; width:140vw; height:40vh;
+  background:#CDEFD1; border-radius:50%; pointer-events:none;
+}
+.home .cloud{ position:absolute; background:#fff; border-radius:999px; opacity:.75; pointer-events:none; }
+.home-scroll{
+  position:relative; z-index:2;
+  flex:1 1 auto; min-height:0; overflow-y:auto;
+  padding:0 clamp(14px,3.5vw,44px) clamp(20px,4vh,40px);
+  -webkit-overflow-scrolling:touch;
+}
+.greet h2{ font-size:clamp(22px,4.4vmin,38px); }
+.greet p{ margin:6px 0 0; color:var(--ink-soft); font-size:clamp(12px,2.1vmin,17px); }
+
+/* ---------- cartoes em forma de ilha ---------- */
+.islands{
+  display:grid; gap:clamp(6px,1.6vmin,18px);
+  grid-template-columns:repeat(auto-fill,minmax(clamp(136px,27vw,236px),1fr));
+  margin-top:clamp(10px,2.2vh,22px);
+}
+.island{
+  background:none; border:none; padding:0;
+  display:flex; flex-direction:column; align-items:center;
+  transition:transform .18s cubic-bezier(.3,1.4,.5,1);
+}
+.island:active{ transform:scale(.95); }
+@media (hover:hover){
+  .island:hover{ transform:translateY(-6px); }
+  .island:hover .island-art{ filter:drop-shadow(0 12px 16px rgba(43,42,74,.22)); }
+}
+.island-pic{ display:block; width:100%; }
+.island-art{
+  width:100%; height:auto; display:block;
+  filter:drop-shadow(0 8px 10px rgba(43,42,74,.14));
+  transition:filter .2s ease;
+}
+.island-label{
+  display:block; width:92%; margin-top:-7%;
+  background:var(--paper); border-radius:18px;
+  padding:clamp(7px,1.4vmin,12px) clamp(9px,1.8vmin,16px);
+  box-shadow:var(--shadow-m);
+  border:2px solid var(--island-soft,#eee);
+  text-align:center;
+}
+.island-label b{
+  display:block; font-family:'Baloo 2',sans-serif; font-weight:700;
+  font-size:clamp(12px,2.1vmin,17px); line-height:1.15;
+}
+.island-label small{
+  display:block; font-weight:600; color:var(--ink-faint);
+  font-size:clamp(9px,1.5vmin,12px); margin-top:1px;
+}
+.island-label .bar{
+  display:block; height:6px; border-radius:99px;
+  background:#F0EEF7; overflow:hidden; margin-top:6px;
+}
+.island-label .bar span{
+  display:block; height:100%; border-radius:99px;
+  background:var(--island,#ccc); transition:width .5s ease;
+}
+
+/* ---------- lista de jogos da ilha ---------- */
+.island-head{
+  background:var(--accent); color:#fff;
+  padding:clamp(14px,2.6vh,24px) clamp(14px,3.5vw,40px);
+  border-radius:0 0 var(--r-xl) var(--r-xl);
+  box-shadow:0 8px 20px rgba(43,42,74,.18);
+  display:flex; align-items:center; gap:clamp(10px,2vw,18px);
+  flex:0 0 auto;
+}
+.island-head h1{ font-size:clamp(18px,3.6vmin,30px); }
+.island-head p{ margin:2px 0 0; font-size:clamp(11px,1.9vmin,15px); opacity:.85; font-weight:700; }
+/* a seta herda a cor da ilha: sobre a faixa colorida, o botao e branco */
+.island-head .icon-btn{ color:var(--accent); }
+
+.game-list{
+  flex:1 1 auto; min-height:0; overflow-y:auto;
+  display:grid; gap:clamp(10px,2vmin,20px);
+  grid-template-columns:repeat(auto-fill,minmax(clamp(250px,44vw,430px),1fr));
+  padding:clamp(14px,3vh,28px) clamp(14px,3.5vw,40px);
+  align-content:start;
+}
+.game-card{
+  display:flex; align-items:center; gap:clamp(10px,2vw,16px); text-align:left;
+  background:var(--paper); border-radius:var(--r-lg);
+  padding:clamp(12px,2vmin,20px);
+  box-shadow:var(--shadow-m);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.game-card:active{ transform:scale(.98); }
+@media (hover:hover){ .game-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-l); } }
+.game-card .ico{
+  width:clamp(48px,7.5vmin,62px); height:clamp(48px,7.5vmin,62px); flex:0 0 auto;
+  border-radius:18px; background:var(--accent-soft);
+  display:flex; align-items:center; justify-content:center;
+}
+.game-card .ico svg{ width:52%; height:52%; }
+.game-card .tx{ flex:1 1 auto; min-width:0; }
+.game-card .tx b{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:clamp(14px,2.4vmin,19px); }
+.game-card .tx small{ display:block; font-weight:600; font-size:clamp(10px,1.8vmin,13px); color:var(--ink-faint); margin-top:2px; }
+.game-card .go{ flex:0 0 auto; display:flex; flex-direction:column; align-items:flex-end; gap:8px; align-self:center; }
+.stars{ display:flex; gap:2px; }
+.stars svg{ width:clamp(12px,2vmin,16px); height:clamp(12px,2vmin,16px); }
+
+/* ---------- modais ---------- */
+.backdrop{
+  position:absolute; inset:0;
+  background:rgba(43,42,74,.55);
+  display:flex; align-items:center; justify-content:center;
+  padding:20px;
+  animation:fade .2s ease both;
+}
+@keyframes fade{ from{opacity:0} to{opacity:1} }
+.sheet{
+  background:var(--paper); border-radius:var(--r-xl);
+  padding:clamp(20px,4vmin,34px);
+  box-shadow:var(--shadow-xl);
+  max-width:min(92vw,460px); width:100%;
+  text-align:center;
+  animation:pop .3s ease both;
+  max-height:88vh; overflow-y:auto;
+}
+.sheet h2{ font-size:clamp(20px,3.6vmin,28px); }
+.sheet p{ color:var(--ink-soft); font-size:clamp(12px,2.1vmin,16px); margin:10px 0 0; }
+.sheet .actions{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:22px; }
+.sheet input[type=number],.sheet input[type=text]{
+  font-family:'Baloo 2',sans-serif; font-weight:800; font-size:26px;
+  width:150px; text-align:center; padding:12px;
+  border-radius:var(--r-sm); border:3px solid var(--ink-ghost);
+  background:#FAF9FE; color:var(--ink); margin-top:14px;
+}
+.sheet input:focus{ outline:none; border-color:var(--accent); }
+
+.reward-star{ animation:cheer 1.2s ease infinite; margin:0 auto; }
+
+/* definicoes / pais */
+.settings-row{
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  padding:14px 4px; border-bottom:2px solid #F1EFF8; text-align:left;
+}
+.settings-row:last-child{ border-bottom:none; }
+.settings-row .lb{ font-size:clamp(12px,2.1vmin,15px); }
+.settings-row .lb small{ display:block; font-weight:600; color:var(--ink-faint); font-size:.86em; margin-top:2px; }
+.seg{ display:flex; background:#F1EFF8; border-radius:999px; padding:4px; gap:2px; flex:0 0 auto; }
+.seg button{
+  border-radius:999px; padding:8px 13px;
+  font-family:'Baloo 2',sans-serif; font-weight:700; font-size:12px;
+  color:var(--ink-soft); transition:background .2s ease,color .2s ease;
+}
+.seg button.on{ background:var(--paper); color:var(--ink); box-shadow:var(--shadow-s); }
+.switch{
+  width:58px; height:32px; border-radius:999px; background:#DAD7E8;
+  position:relative; transition:background .2s ease; flex:0 0 auto;
+}
+.switch::after{
+  content:''; position:absolute; top:4px; left:4px;
+  width:24px; height:24px; border-radius:50%; background:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,.2); transition:left .2s ease;
+}
+.switch.on{ background:var(--green); }
+.switch.on::after{ left:30px; }
+
+/* autocolantes */
+.sticker-grid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(clamp(74px,13vmin,116px),1fr));
+  gap:clamp(10px,2vmin,18px);
+}
+.sticker{
+  aspect-ratio:1; border-radius:var(--r-md);
+  background:var(--paper); box-shadow:var(--shadow-s);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; padding:10px;
+}
+.sticker svg{ width:72%; height:72%; }
+.sticker.locked{ background:#F1EFF8; box-shadow:none; }
+.sticker.locked svg{ opacity:.18; filter:grayscale(1); }
+
+/* grelha de exploracao livre (animais): 4 x 2, ou 2 colunas no telemovel */
+.free-grid{
+  display:grid; gap:clamp(10px,2.2vmin,24px);
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  width:100%; max-width:min(94vw,780px);
+}
+@media (max-width:620px){
+  .free-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+
+/* confetti */
+.confetti{ position:absolute; width:12px; height:16px; border-radius:3px; will-change:transform,opacity; }
+
+/* utilidades */
+.sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.center{ text-align:center; }
+.mt{ margin-top:clamp(10px,2vh,20px); }
+.wrap-scroll{ flex:1 1 auto; min-height:0; overflow-y:auto; padding:clamp(12px,3vh,26px) clamp(14px,3.5vw,40px); }
+
+/* ---------- ecra de boas-vindas ---------- */
+.welcome{
+  background:linear-gradient(180deg,#EAF6FF 0%,#F3FAFF 60%,#EAF6FF 100%);
+  align-items:center; justify-content:center;
+}
+.welcome-box{
+  position:relative; z-index:2;
+  display:flex; flex-direction:column; align-items:center;
+  gap:clamp(6px,1.4vh,14px);
+  padding:clamp(18px,4vmin,34px);
+  width:min(92vw,440px);
+  text-align:center;
+}
+.welcome-mascot{
+  width:clamp(84px,18vmin,148px); height:clamp(84px,18vmin,148px);
+  animation:bob 3.4s ease-in-out infinite;
+}
+.welcome-hello{ font-size:clamp(26px,6vmin,46px); }
+.welcome-sub{
+  margin:0; color:var(--ink-soft);
+  font-size:clamp(13px,2.4vmin,18px);
+}
+.welcome-form{
+  display:flex; flex-direction:column; align-items:center;
+  gap:clamp(10px,2vh,18px);
+  width:100%; margin-top:clamp(6px,1.6vh,16px);
+}
+.welcome-form input{
+  width:100%; max-width:320px;
+  font-family:'Baloo 2',sans-serif; font-weight:800;
+  font-size:clamp(20px,4vmin,28px); text-align:center;
+  padding:clamp(12px,2.2vh,18px) 16px;
+  border-radius:var(--r-md);
+  border:3px solid var(--ink-ghost);
+  background:var(--paper); color:var(--ink);
+}
+.welcome-form input:focus{ outline:none; border-color:var(--coral); }
+.welcome-form input.shake{ animation:wobble .5s ease; border-color:var(--coral); }
+.welcome-form .go{ background:var(--coral); }
+
+/* ---------- nuvens e colina, partilhadas ---------- */
+.home .hill,.welcome .hill{
+  position:absolute; bottom:-22vh; left:-20vw; width:140vw; height:40vh;
+  background:#CDEFD1; border-radius:50%; pointer-events:none;
+}
+.home .cloud,.welcome .cloud{
+  position:absolute; background:#fff; border-radius:999px;
+  opacity:.75; pointer-events:none;
+}
+.home .c1,.welcome .c1{ top:7%; left:7%; width:clamp(74px,13vw,158px); height:clamp(30px,5.2vw,62px); }
+.home .c2,.welcome .c2{ top:15%; right:10%; width:clamp(56px,9.5vw,112px); height:clamp(24px,3.8vw,48px); opacity:.6; }
+
+/* ---------- marca no topo ---------- */
+.brand{ display:flex; align-items:center; gap:10px; flex:1 1 auto; min-width:0; }
+.brand-mark{ width:clamp(34px,6vmin,52px); height:clamp(34px,6vmin,52px); flex:0 0 auto; }
+.brand-name{
+  font-size:clamp(15px,3.2vmin,26px);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+/* ---------- cabecalho da ilha ---------- */
+.head-badge{
+  width:clamp(40px,7vmin,54px); height:clamp(40px,7vmin,54px);
+  border-radius:16px; background:#fff; flex:0 0 auto;
+  display:flex; align-items:center; justify-content:center;
+}
+.head-badge svg{ width:58%; height:58%; }
+.head-tx{ flex:1 1 auto; min-width:0; }
+.head-mascot{ width:clamp(32px,6vmin,46px); flex:0 0 auto; }
+.play-pill{ font-size:clamp(11px,1.9vmin,14px); padding:7px 15px; }
+
+/* ---------- pequenos ajustes ---------- */
+.center-block{ margin-left:auto; margin-right:auto; text-align:center; }
+.settings-card{ max-width:640px; margin:0 auto; padding:clamp(14px,3vmin,26px); }
+.settings-row .nm-in{
+  margin:0; width:min(48vw,180px);
+  font-family:'Baloo 2',sans-serif; font-weight:800; font-size:18px;
+  text-align:center; padding:10px 12px;
+  border-radius:var(--r-sm); border:3px solid var(--ink-ghost);
+  background:#FAF9FE; color:var(--ink);
+}
+.settings-row .nm-in:focus{ outline:none; border-color:var(--accent); }
+.btn.reset,.btn.danger{ color:var(--coral); }
+.btn.primary.danger{ background:var(--coral); color:#fff; }
+
+/* ---------- fases ---------- */
+.title-wrap{ display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; }
+.level-badge{
+  display:inline-flex; align-items:baseline; gap:1px;
+  background:var(--accent); color:#fff;
+  font-family:'Baloo 2',sans-serif; font-weight:800;
+  font-size:clamp(12px,2vmin,15px);
+  padding:4px 12px; border-radius:999px;
+  box-shadow:0 4px 10px rgba(43,42,74,.16);
+  transition:transform .15s ease;
+}
+.level-badge .of{ opacity:.7; font-size:.85em; }
+.level-badge:active{ transform:scale(.94); }
+
+.lvl-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:18px; }
+.lvl{
+  position:relative;
+  width:clamp(52px,11vmin,68px); height:clamp(52px,11vmin,68px);
+  border-radius:18px; background:var(--accent-soft,#F1EFF8);
+  border:3px solid transparent;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Baloo 2',sans-serif; font-weight:800; font-size:22px; color:var(--ink);
+  transition:transform .15s ease;
+}
+.lvl:not([disabled]):active{ transform:scale(.94); }
+.lvl.cur{ border-color:var(--accent,#FF6F59); }
+.lvl.done{ background:#FFF6DB; }
+.lvl.locked{ background:#F1EFF8; color:var(--ink-ghost); cursor:default; }
+.lvl .lvl-star{ position:absolute; top:-8px; right:-8px; width:24px; height:24px; }
+.lvl .lock{ position:absolute; bottom:4px; right:4px; width:18px; height:18px; color:var(--ink-ghost); }
+.lvl .lock svg{ width:100%; height:100%; }
+.win-stars{ display:flex; gap:4px; justify-content:center; margin-top:14px; }
+
+/* passos da fase no cartao de jogo da ilha */
+.game-card .phase{ display:flex; gap:3px; margin-top:6px; }
+.game-card .phase i{ width:clamp(7px,1.3vmin,10px); height:clamp(7px,1.3vmin,10px); border-radius:50%; background:#EDEBF5; }
+.game-card .phase i.on{ background:#FFC145; }
+
+/* ---------- contagem ---------- */
+.count-field{ min-height:clamp(70px,14vmin,120px); }
+.count-field.scatter{
+  position:relative;
+  width:min(90vw,620px); height:clamp(170px,32vh,300px);
+  background:rgba(255,255,255,.55); border-radius:var(--r-lg);
+}
+
+/* bolinha que pulsa para mostrar onde tocar a seguir */
+@keyframes pulse-soft{ 0%,100%{ opacity:1 } 50%{ opacity:.55 } }
+.pulse-dot{ animation:pulse-soft 1.1s ease-in-out infinite; }
+
+/* area dos pais: escolha de voz */
+.voice-pick{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
+.voice-pick select{
+  font:700 14px 'Nunito',sans-serif; color:var(--ink);
+  padding:10px 12px; border-radius:var(--r-sm);
+  border:3px solid var(--ink-ghost); background:#FAF9FE;
+  max-width:min(60vw,260px);
+}
+.voice-hint{
+  margin:10px 4px 0; padding:12px 14px; border-radius:14px;
+  background:#FFF6DB; color:#7A6230; font-size:13px; text-align:left;
+}
+
+/* ============================================================
+   Responsivo
+   A app ja e fluida (clamp em quase tudo). Estas regras tratam
+   dos extremos: telemovel pequeno, telemovel deitado e ecra largo.
+   ============================================================ */
+
+/* cartao de jogo apertado: as estrelas saem, o botao Jogar fica */
+@media (max-width:560px){
+  .game-card .stars{ display:none; }
+}
+
+/* telemovel estreito */
+@media (max-width:400px){
+  .islands{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+  .game-list{ grid-template-columns:1fr; }
+  .topbar{ gap:8px; }
+  .brand-name{ font-size:15px; }
+  .row{ gap:10px; }
+}
+
+/* ecra baixo: telemovel deitado, ou janela encolhida.
+   Encolhe cromos e espacamentos para o jogo continuar todo visivel. */
+@media (max-height:560px){
+  .topbar{ padding-top:6px; padding-bottom:6px; }
+  .stage{ gap:clamp(6px,1.2vh,14px); padding-bottom:8px; }
+  .hint{ font-size:12px; }
+  .prompt{ font-size:clamp(15px,3.6vh,22px); }
+  .mascot{ width:clamp(40px,8vh,58px); height:clamp(40px,8vh,58px); }
+  .speaker{ width:clamp(64px,17vh,96px); height:clamp(64px,17vh,96px); }
+  .tile{ --tile:clamp(58px,17vh,96px); }
+  .island-head{ padding-top:10px; padding-bottom:10px; }
+  .welcome-mascot{ width:clamp(56px,14vh,92px); height:clamp(56px,14vh,92px); }
+  .welcome-hello{ font-size:clamp(20px,7vh,32px); }
+  .home .hill,.welcome .hill{ display:none; }
+}
+
+/* ecra muito baixo: esconde enfeites que roubam altura */
+@media (max-height:430px){
+  /* rede de seguranca: se mesmo assim nao couber, a area de jogo faz scroll */
+  .stage{ justify-content:flex-start; overflow-y:auto; }
+  .home .cloud,.welcome .cloud{ display:none; }
+  .free-grid{ grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .mascot{ display:none; }
+  .bubble{ right:clamp(10px,2.5vw,28px); bottom:clamp(8px,1.6vh,16px); }
+}
+
+/* ecra largo: limita a largura para as coisas nao ficarem perdidas */
+@media (min-width:1500px){
+  .home-scroll,.wrap-scroll{ max-width:1400px; margin:0 auto; width:100%; }
+  .islands{ grid-template-columns:repeat(5,minmax(0,1fr)); }
+}
+
+/* ecra tactil grande (tablet): alvos ainda maiores */
+@media (min-width:768px) and (pointer:coarse){
+  .icon-btn{ width:58px; height:58px; }
+  .btn{ padding:16px 28px; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+}
